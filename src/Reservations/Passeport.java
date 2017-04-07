@@ -2,7 +2,7 @@ package Reservations;
 
 public class Passeport {
 
-	private string Numero;
+	private String Numero;
 	private Date DatePasseport;
 
 }
