@@ -7,6 +7,7 @@ public class Administrateur {
 	private string nom;
 	private string userNam;
 	private string password;
+	private State state;
 
 	/**
 	 * 
@@ -163,6 +164,11 @@ public class Administrateur {
 	 */
 	public void CreerEscale(String idCie, string idVoyage, string Instalation, Date Arrive, Date Depart) {
 		// TODO - implement Administrateur.CreerEscale
+		throw new UnsupportedOperationException();
+	}
+
+	public void update() {
+		// TODO - implement Administrateur.update
 		throw new UnsupportedOperationException();
 	}
 

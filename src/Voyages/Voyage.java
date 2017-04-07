@@ -13,6 +13,7 @@ public abstract class Voyage implements IVisitable, IVisitable {
 	private List<Installation> Visites;
 	private Vehicule Vehicule;
 	private string Id;
+	private State state;
 
 	/**
 	 * 
@@ -86,6 +87,19 @@ public abstract class Voyage implements IVisitable, IVisitable {
 	 */
 	public void setVehicule(Vehicule Vehicule) {
 		// TODO - implement Voyage.setVehicule
+		throw new UnsupportedOperationException();
+	}
+
+	public State getState() {
+		return this.state;
+	}
+
+	/**
+	 * 
+	 * @param State
+	 */
+	public void setState(int State) {
+		// TODO - implement Voyage.setState
 		throw new UnsupportedOperationException();
 	}
 

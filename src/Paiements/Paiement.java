@@ -3,9 +3,9 @@ package Paiements;
 public abstract class Paiement {
 
 	private double Montant;
-	private string NoConfirmation;
+	private String NoConfirmation;
 
-	public string transaction() {
+	public String transaction() {
 		// TODO - implement Paiement.transaction
 		throw new UnsupportedOperationException();
 	}
