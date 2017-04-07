@@ -4,9 +4,9 @@ import Voyages.*;
 
 public class Administrateur {
 
-	private string nom;
-	private string userNam;
-	private string password;
+	private String nom;
+	private String userNam;
+	private String password;
 	private State state;
 
 	/**
