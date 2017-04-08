@@ -1,13 +1,45 @@
 package Voyages;
 
-public class UniteParVoyage implements IVisitable, IVisitable {
+import Modele.Unite;
 
-	private string section;
+import java.util.ArrayList;
+
+public class UniteParVoyage implements IVisitable{
+
+	private String section;
+
 	private EtatUPV etat;
 
+	private ArrayList<EtatUPV> allState = new ArrayList<EtatUPV>();
+
+	private Voyage voyage;
+
+	private Unite unite;
+
+	public UniteParVoyage(String section, Voyage voyage, Unite siege) {
+		this.section = section;
+		this.voyage = voyage;
+		this.unite = siege;
+		etat = new EtatLibreUPV();
+		allState.add(etat);
+		allState.add(new EtatReserverUPV());
+		allState.add(new EtatConfirmerUPV());
+	}
+
+	public ArrayList<EtatUPV> getAllState() {
+		return allState;
+	}
+
+	public String getSection() {
+		return section;
+	}
+
+	public EtatUPV getEtat() {
+		return etat;
+	}
+
 	public double getPrix() {
-		// TODO - implement UniteParVoyage.getPrix
-		throw new UnsupportedOperationException();
+		return voyage.getPrix();
 	}
 
 	/**
@@ -20,11 +52,10 @@ public class UniteParVoyage implements IVisitable, IVisitable {
 
 	/**
 	 * 
-	 * @param e
+	 * @param e peut etre liberer, reserver ou confirmer
 	 */
-	public void event(string e) {
-		// TODO - implement UniteParVoyage.event
-		throw new UnsupportedOperationException();
+	public void event(String e) {
+		etat.event(e,this);
 	}
 
 	/**
@@ -32,8 +63,13 @@ public class UniteParVoyage implements IVisitable, IVisitable {
 	 * @param next
 	 */
 	public EtatUPV getNextEtat(String next) {
-		// TODO - implement UniteParVoyage.getNextEtat
-		throw new UnsupportedOperationException();
+		if(next.equals("liberer")){
+			return allState.get(0);
+		}else if(next.equals("reserver")){
+			return allState.get(1);
+		}else{
+			return allState.get(2);
+		}
 	}
 
 }

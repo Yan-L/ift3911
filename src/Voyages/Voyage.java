@@ -24,6 +24,7 @@ public abstract class Voyage implements IVisitable, Sujet {
 	private String Id;
 	private VoyageState state;
 	private ArrayList<Observateur> observers;
+	private ArrayList<UniteParVoyage> unites;
 	private boolean changed;
 
 	public Voyage(String id, Time hDep, Time hArr, Date date) {
@@ -31,10 +32,16 @@ public abstract class Voyage implements IVisitable, Sujet {
 		HeureArrivee = hArr;
 		DateDepart = date;
 		Id = id;
+		Visites = new ArrayList<Installation>();
+		unites = new ArrayList<UniteParVoyage>();
 	}
 
 	public void setPrix(double prix) {
 		Prix = prix;
+	}
+
+	public double getPrix(){
+		return Prix;
 	}
 
 	/**
@@ -45,26 +52,33 @@ public abstract class Voyage implements IVisitable, Sujet {
 	 * @param prix
 	 */
 	public void modifier(Time hdep, Time hArr, Date date, double prix) {
-		// TODO - implement Voyage.modifier
-		throw new UnsupportedOperationException();
+		HeureDepart = hdep;
+		HeureArrivee = hArr;
+		DateDepart = date;
+		Prix = prix;
 	}
 
 	/**
-	 * 
+	 * retourne les unitees libre d'une section donnee
 	 * @param sectionType
 	 */
-	public ArrayList<Unite> uniteeDisponible(String sectionType) {
-		// TODO - implement Voyage.uniteeDisponible
-		throw new UnsupportedOperationException();
+	public ArrayList<UniteParVoyage> uniteeDisponible(String sectionType) {
+		ArrayList<UniteParVoyage> libre = new ArrayList<UniteParVoyage>();
+		for(int i = 0; i<unites.size(); i++){
+			UniteParVoyage uPV = unites.get(i);
+			if(uPV.getEtat() instanceof EtatLibreUPV && uPV.getSection().equals(sectionType)){
+				libre.add(uPV);
+			}
+		}
+		return libre;
 	}
 
 	/**
-	 * 
+	 * retourne le nb d'unitee dispo pour une section donnee
 	 * @param section
 	 */
 	public int nbUniteesDispo(String section) {
-		// TODO - implement Voyage.nbUniteesDispo
-		throw new UnsupportedOperationException();
+		return uniteeDisponible(section).size();
 	}
 
 	/**
@@ -72,8 +86,7 @@ public abstract class Voyage implements IVisitable, Sujet {
 	 * @param LieuDepart
 	 */
 	public void setLieuDepart(Installation LieuDepart) {
-		// TODO - implement Voyage.setLieuDepart
-		throw new UnsupportedOperationException();
+		this.LieuDepart = LieuDepart;
 	}
 
 	/**
@@ -81,8 +94,7 @@ public abstract class Voyage implements IVisitable, Sujet {
 	 * @param LieuDarrivee
 	 */
 	public void setLieuDarrivee(Installation LieuDarrivee) {
-		// TODO - implement Voyage.setLieuDarrivee
-		throw new UnsupportedOperationException();
+		this.LieuDarrivee = LieuDarrivee;
 	}
 
 	/**
@@ -90,17 +102,7 @@ public abstract class Voyage implements IVisitable, Sujet {
 	 * @param Visite
 	 */
 	public void addVisites(Installation Visite) {
-		// TODO - implement Voyage.addVisites
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param vehicule
-	 */
-	public void addVehicule(Vehicule vehicule) {
-		// TODO - implement Voyage.addVehicule
-		throw new UnsupportedOperationException();
+		Visites.add(Visite);
 	}
 
 	/**
@@ -108,9 +110,16 @@ public abstract class Voyage implements IVisitable, Sujet {
 	 * @param Vehicule
 	 */
 	public void setVehicule(Vehicule Vehicule) {
-		// TODO - implement Voyage.setVehicule
-		throw new UnsupportedOperationException();
+		this.Vehicule = Vehicule;
+		for (int i = 0; i<Vehicule.getSections().size();i++){
+			Section section = Vehicule.getSections().get(i);
+			for (int j = 0; j<section.getUnites().size();j++){
+				UniteParVoyage upv = new UniteParVoyage(section.getType(),this, section.getUnites().get(i));
+				unites.add(upv);
+			}
+		}
 	}
+
 	public void attach(Observateur obj){
 		if(obj == null){
 			throw new  NullPointerException("Null Observer");

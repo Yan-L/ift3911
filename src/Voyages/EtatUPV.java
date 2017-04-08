@@ -4,9 +4,9 @@ public abstract class EtatUPV {
 
 	/**
 	 * 
-	 * @param e
+	 * @param e peut etre liberer, reserver ou confirmer
 	 * @param upv
 	 */
-	public abstract void event(string e, UniteParVoyage upv);
+	public abstract void event(String e, UniteParVoyage upv);
 
 }

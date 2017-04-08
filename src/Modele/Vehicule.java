@@ -1,17 +1,23 @@
 package Modele;
 
-import IVisitable.*;
+import Voyages.IVisitable;
+import java.util.ArrayList;
 
 public abstract class Vehicule implements accept, IVisitable {
 
-	private string Id;
-	private string nomModel;
+	private String Id;
+	private String nomModel;
+	private ArrayList<Section> sections;
+
+	public ArrayList<Section> getSections(){
+		return sections;
+	}
 
 	/**
 	 * 
 	 * @param type
 	 */
-	public void creerSection(string type) {
+	public void creerSection(String type) {
 		// TODO - implement Vehicule.creerSection
 		throw new UnsupportedOperationException();
 	}
@@ -21,7 +27,7 @@ public abstract class Vehicule implements accept, IVisitable {
 	 * @param type
 	 * @param nbRangees
 	 */
-	public void creerDisposition(string type, int nbRangees) {
+	public void creerDisposition(String type, int nbRangees) {
 		// TODO - implement Vehicule.creerDisposition
 		throw new UnsupportedOperationException();
 	}

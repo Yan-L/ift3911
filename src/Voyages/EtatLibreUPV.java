@@ -7,9 +7,8 @@ public class EtatLibreUPV extends EtatUPV {
 	 * @param e
 	 * @param upv
 	 */
-	public void event(string e, UniteParVoyage upv) {
-		// TODO - implement EtatLibreUPV.event
-		throw new UnsupportedOperationException();
+	public void event(String e, UniteParVoyage upv) {
+		upv.setEtat(upv.getNextEtat(e));
 	}
 
 }
