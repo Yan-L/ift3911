@@ -4,12 +4,18 @@ import Voyages.*;
 import java.util.Date;
 import java.util.List;
 
-public class Administrateur {
+import Client.Observateur;
+import Client.ReservState;
+import Client.Sujet;
+
+public class Administrateur implements Observateur{
 
 	private String nom;
 	private String userNam;
 	private String password;
+	private Sujet sujet;
 	//private State state;
+	private VoyageState state;
 
 
 	/**
@@ -171,8 +177,13 @@ public class Administrateur {
 	}
 
 	public void update() {
-		// TODO - implement Administrateur.update
-		throw new UnsupportedOperationException();
+		this.state = (VoyageState) this.sujet.getUpdate(this);
+		ModifierVoyage(this.state.getHeureDepart(),this.state.getHeureArrivee(),this.state.getDateDepart(),this.state.getPrix());
+	}
+
+	public void setSubject(Sujet sujet) {
+		this.sujet = sujet;
+		
 	}
 
 }

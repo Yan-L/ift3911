@@ -1,28 +1,24 @@
 package Voyages;
 
+import java.sql.Time;
+import java.util.Date;
+
 public class TrajetCreator extends VoyageCreator {
 
-	private TrajetCreator instance;
+	private static TrajetCreator instance;
 
-	private TrajetCreator() {
-		// TODO - implement TrajetCreator.TrajetCreator
-		throw new UnsupportedOperationException();
-	}
+	private TrajetCreator() {}
 
 	public static TrajetCreator getInstance() {
-		return this.instance;
+		if(instance == null){
+			instance = new TrajetCreator();
+		}
+		return instance;
 	}
 
-	/**
-	 * 
-	 * @param id
-	 * @param hDep
-	 * @param hArr
-	 * @param date
-	 */
-	protected Voyage factoryMethod(string id, Time hDep, Time hArr, Date date) {
-		// TODO - implement TrajetCreator.factoryMethod
-		throw new UnsupportedOperationException();
-	}
 
+	@Override
+	protected Voyage factoryMethod(String id, Time hDep, Time hArr, Date date) {
+		return new Trajet(id, hDep, hArr, date);
+	}
 }

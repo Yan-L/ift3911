@@ -1,3 +1,5 @@
+package Voyages;
+
 public interface IVisitable {
 
 	/**
@@ -5,6 +7,6 @@ public interface IVisitable {
 	 * @param v
 	 */
 	//comment pour essayer un commit.
-	void accept(Visitor v);
+	//void accept(Visitor v);
 
 }
