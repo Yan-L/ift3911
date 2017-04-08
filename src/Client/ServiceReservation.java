@@ -1,5 +1,8 @@
 package Client;
 
+import java.util.Date;
+import java.util.List;
+
 import Voyages.*;
 
 public interface ServiceReservation {
@@ -12,19 +15,19 @@ public interface ServiceReservation {
 	 * @param date
 	 * @param section
 	 */
-	List<Voyage> verificationDisponibilite(string typeVoyage, Installation ori, Installation dest, Date date, string section);
+	List<Voyage> verificationDisponibilite(String typeVoyage, Installation ori, Installation dest, Date date, String section);
 
 	/**
 	 * 
 	 * @param noReservation
 	 */
-	void annulerReservation(string noReservation);
+	void annulerReservation(String noReservation);
 
 	/**
 	 * 
 	 * @param unitee
 	 */
-	string reserverUnitee(UniteParVoyage unitee);
+	String reserverUnitee(UniteParVoyage unitee);
 
 	/**
 	 * 
@@ -38,7 +41,7 @@ public interface ServiceReservation {
 	 * @param passeport
 	 * @param exp
 	 */
-	void infoPersonnel(string noReservation, string nom, string prenom, string adresse, string courriel, string telephone, Date naissance, string passeport, Date exp);
+	void infoPersonnel(String noReservation, String nom, String prenom, String adresse, String courriel, String telephone, Date naissance, String passeport, Date exp);
 
 	/**
 	 * 
@@ -46,19 +49,19 @@ public interface ServiceReservation {
 	 * @param noCarte
 	 * @param exp
 	 */
-	string paiementReservation(string noReservation, string noCarte, Date exp);
+	String paiementReservation(String noReservation, String noCarte, Date exp);
 
 	/**
 	 * 
 	 * @param noReservation
 	 * @param unitee
 	 */
-	double modifierReservation(string noReservation, UniteParVoyage unitee);
+	double modifierReservation(String noReservation, UniteParVoyage unitee);
 
 	/**
 	 * 
 	 * @param noReservation
 	 */
-	double etatReservation(string noReservation);
+	double etatReservation(String noReservation);
 
 }

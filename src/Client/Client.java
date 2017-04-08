@@ -1,12 +1,21 @@
 package Client;
 
-public class Client {
+import Reservations.Reservation;
+import Voyages.UniteParVoyage;
 
-	private State state;
-
+public class Client implements Observateur{
+	private Sujet sujet;
+	private ReservState state;
+	private UniteParVoyage unitee;
+	private GestionnaireReservation gesRes;
 	public void update() {
-		// TODO - implement Client.update
-		throw new UnsupportedOperationException();
+		this.state = (ReservState) this.sujet.getUpdate(this);
+		gesRes.modifierReservation(this.state.getNoReserv(),this.state.getMessage());
+	}
+
+	public void setSubject(Sujet sujet) {
+		// TODO Auto-generated method stub
+		this.sujet = sujet;
 	}
 
 }

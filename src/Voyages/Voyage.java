@@ -1,11 +1,15 @@
 package Voyages;
 
-import Modele.*;
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.Date;
 
-public abstract class Voyage implements IVisitable {
+import Administration.VoyageState;
+import Client.Observateur;
+import Client.Sujet;
+import Modele.*;
+import java.util.ArrayList;
+
+public abstract class Voyage implements IVisitable, Sujet {
 
 	private double Prix;
 	private Time HeureDepart;
@@ -16,79 +20,9 @@ public abstract class Voyage implements IVisitable {
 	private ArrayList<Installation> Visites;
 	private Vehicule Vehicule;
 	private String Id;
-	private String state;
-
-	public Voyage(String id, Time hDep, Time hArr, Date date) {
-		HeureDepart = hDep;
-		HeureArrivee = hArr;
-		DateDepart = date;
-		Id = id;
-		Visites = new ArrayList<Installation>();
-	}
-
-	public double getPrix() {
-		return Prix;
-	}
-
-	public Time getHeureDepart() {
-		return HeureDepart;
-	}
-
-	public Time getHeureArrivee() {
-		return HeureArrivee;
-	}
-
-	public Date getDateDepart() {
-		return DateDepart;
-	}
-
-	public Installation getLieuDepart() {
-		return LieuDepart;
-	}
-
-	public Installation getLieuDarrivee() {
-		return LieuDarrivee;
-	}
-
-	public ArrayList<Installation> getVisites() {
-		return Visites;
-	}
-
-	public Modele.Vehicule getVehicule() {
-		return Vehicule;
-	}
-
-	public String getId() {
-		return Id;
-	}
-
-	public void setPrix(double prix) {
-		Prix = prix;
-	}
-
-	public void setHeureDepart(Time heureDepart) {
-		HeureDepart = heureDepart;
-	}
-
-	public void setHeureArrivee(Time heureArrivee) {
-		HeureArrivee = heureArrivee;
-	}
-
-	public void setDateDepart(Date dateDepart) {
-		DateDepart = dateDepart;
-	}
-
-	public void setVisites(ArrayList<Installation> visites) {
-		Visites = visites;
-	}
-
-	public void setId(String id) {
-		Id = id;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
+	private VoyageState state;
+	private List<Observateur> observers;
+	private boolean changed;
 
 	/**
 	 * 
@@ -164,18 +98,34 @@ public abstract class Voyage implements IVisitable {
 		// TODO - implement Voyage.setVehicule
 		throw new UnsupportedOperationException();
 	}
-
-	public String getState() {
-		return this.state;
+	public void attach(Observateur obj){
+		if(obj == null){
+			throw new  NullPointerException("Null Observer");
+		}
+		if(!observers.contains(obj)){
+			observers.add(obj);
+			obj.setSubject(this);
+		}
 	}
 
-	/**
-	 * 
-	 * @param State
-	 */
-	public void setState(int State) {
-		// TODO - implement Voyage.setState
-		throw new UnsupportedOperationException();
+	public void detach(Observateur obj){
+		if(obj == null){
+			throw new  NullPointerException("Null Observer");
+		}
+		observers.remove(obj);
+	}
+
+	public void notifyObs(){
+		if(!changed){
+			return;
+		}
+		this.changed = false;
+		for(Observateur obj : this.observers){
+			obj.update();
+		}
+	}
+	public VoyageState getUpdate(Observateur obj){
+		return this.state;
 	}
 
 }
