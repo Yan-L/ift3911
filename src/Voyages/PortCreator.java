@@ -2,26 +2,20 @@ package Voyages;
 
 public class PortCreator extends InstallationCreator {
 
-	private PortCreator instance;
+	private static PortCreator instance;
 
-	private PortCreator() {
-		// TODO - implement PortCreator.PortCreator
-		throw new UnsupportedOperationException();
-	}
+	private PortCreator() {}
 
 	public static PortCreator getInstance() {
-		return this.instance;
+		if(instance == null){
+			instance = new PortCreator();
+		}
+		return instance;
 	}
 
-	/**
-	 * 
-	 * @param id
-	 * @param ville
-	 * @param nom
-	 */
-	protected Installation factoryMethod(string id, string ville, string nom) {
-		// TODO - implement PortCreator.factoryMethod
-		throw new UnsupportedOperationException();
-	}
 
+	@Override
+	protected Installation factoryMethod(String id, String ville, String nom) {
+		return new Port(id, ville, nom);
+	}
 }
