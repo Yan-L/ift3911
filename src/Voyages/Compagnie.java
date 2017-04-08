@@ -9,13 +9,13 @@ public abstract class Compagnie {
 	private String id;
 	private String nom;
 	private String idVoyagePrefix;
-	private ArrayList<Voyage> voyages;
+	private ArrayList<DetailsVoyage> detailsVoyages;
 	
 	public Compagnie(String id, String nom, String idVoyagePrefix){
 		this.id = id;
 		this.nom = nom;
 		this.idVoyagePrefix = idVoyagePrefix;
-		this.voyages = new ArrayList<Voyage>();
+		this.detailsVoyages = new ArrayList<DetailsVoyage>();
 	}
 
 	public String getId() {
@@ -30,10 +30,6 @@ public abstract class Compagnie {
 		return idVoyagePrefix;
 	}
 
-	public ArrayList<Voyage> getVoyages() {
-		return voyages;
-	}
-
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -46,45 +42,69 @@ public abstract class Compagnie {
 		this.idVoyagePrefix = idVoyagePrefix;
 	}
 
-	public void setVoyages(ArrayList<Voyage> voyages) {
-		this.voyages = voyages;
+	/**
+	 *
+	 * @return tous les voyages que la cie gere
+	 */
+	public ArrayList<Voyage> consulteVoyages(){
+		ArrayList<Voyage> allVoyages = new ArrayList<Voyage>();
+		for(int i = 0; i < this.detailsVoyages.size(); i++){
+			allVoyages.addAll(this.detailsVoyages.get(i).getVoyages());
+		}
+		return allVoyages;
 	}
 
-	public abstract ArrayList<Voyage> consulteVoyages();
+	public ArrayList<DetailsVoyage> getDetailsVoyages() {
+		return detailsVoyages;
+	}
 
 	/**
-	 * 
+	 * modifie la compagnie
 	 * @param nom
 	 * @param idVoyage
 	 */
-	public abstract void modifier(String nom, String idVoyage);
+	public void modifier(String nom, String idVoyage){
+		this.nom = nom;
+		this.idVoyagePrefix = idVoyage;
+	}
 
 	/**
-	 * 
-	 * @param voyage
-	 * @param idVoyage
-	 */
-	public abstract void addVoyage(Voyage voyage, String idVoyage);
-
-	/**
-	 * 
+	 * ajuste de prix des voyages
 	 * @param voyageId
 	 * @param prix
 	 */
-	public abstract void addPrice(String voyageId, double prix);
+	public void addPrice(String voyageId, double prix){
+		for(int i = 0; i < this.detailsVoyages.size(); i++){
+			DetailsVoyage target = this.detailsVoyages.get(i);
+			if(target.getId().equals(voyageId)){
+				target.addPrice(prix);
+			}
+		}
+	}
 
 	/**
-	 * 
+	 * construit un detailvoyage
 	 * @param hDep
 	 * @param hArr
 	 */
-	public abstract void creerDetailVoyage(Time hDep, Time hArr);
+	public  void creerDetailVoyage(Time hDep, Time hArr){
+		String id = IDVoyageGenerator.getInstance().generate(this.idVoyagePrefix);
+		DetailsVoyage detailsVoyage = new DetailsVoyage(id, hDep, hArr, nom);
+		this.detailsVoyages.add(detailsVoyage);
+	}
 
 	/**
-	 * 
+	 * ajoute un voyage a un detailvoyage
 	 * @param idDetail
 	 * @param voyage
 	 */
-	public abstract void addDetail(String idDetail, Voyage voyage);
+	public void addDetail(String idDetail, Voyage voyage){
+		for(int i = 0; i < this.detailsVoyages.size(); i++){
+			DetailsVoyage target = this.detailsVoyages.get(i);
+			if(target.getId().equals(idDetail)){
+				target.addVoyage(voyage);
+			}
+		}
+	}
 
 }

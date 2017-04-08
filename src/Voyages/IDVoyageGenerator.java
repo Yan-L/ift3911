@@ -2,24 +2,28 @@ package Voyages;
 
 public class IDVoyageGenerator {
 
-	private IDVoyageGenerator instance;
+	private static IDVoyageGenerator instance;
+	private int counter = 0;
+	private String[] padding = {"","00000","0000","000", "00", "0"};
 
 	/**
 	 * 
 	 * @param IDprefix
 	 */
-	public string generate(string IDprefix) {
-		// TODO - implement IDVoyageGenerator.generate
-		throw new UnsupportedOperationException();
+	public String generate(String IDprefix) {
+		String id = "" + counter;
+		id = IDprefix + padding[id.length()%6] + id;
+		counter++;
+		return id;
 	}
 
-	private IDVoyageGenerator() {
-		// TODO - implement IDVoyageGenerator.IDVoyageGenerator
-		throw new UnsupportedOperationException();
-	}
+	private IDVoyageGenerator() {}
 
 	public static IDVoyageGenerator getInstance() {
-		return this.instance;
+		if(instance == null){
+			instance = new IDVoyageGenerator();
+		}
+		return instance;
 	}
 
 }

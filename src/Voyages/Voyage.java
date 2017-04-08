@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 public abstract class Voyage implements IVisitable, Sujet {
 
+
+
 	private double Prix;
 	private Time HeureDepart;
 	private Time HeureArrivee;
@@ -29,6 +31,10 @@ public abstract class Voyage implements IVisitable, Sujet {
 		HeureArrivee = hArr;
 		DateDepart = date;
 		Id = id;
+	}
+
+	public void setPrix(double prix) {
+		Prix = prix;
 	}
 
 	/**

@@ -65,13 +65,20 @@ public abstract class Installation {
 	 * @param nom
 	 */
 	public void modifier(String id, String ville, String nom) {
-		// TODO - implement Installation.modifier
-		throw new UnsupportedOperationException();
+		this.id = id;
+		this.ville = ville;
+		this.nom = nom;
 	}
 
+	/**
+	 *
+	 * @return tous les voyages partent et sortant de l'installation
+	 */
 	public ArrayList<Voyage> consulteVoyages() {
-		// TODO - implement Installation.consulteVoyages
-		throw new UnsupportedOperationException();
+		ArrayList<Voyage> allVoyage = new ArrayList<Voyage>();
+		allVoyage.addAll(departures);
+		allVoyage.addAll(arrivals);
+		return allVoyage;
 	}
 
 	/**
@@ -79,8 +86,7 @@ public abstract class Installation {
 	 * @param voyage
 	 */
 	public void addArrival(Voyage voyage) {
-		// TODO - implement Installation.addArrival
-		throw new UnsupportedOperationException();
+		this.arrivals.add(voyage);
 	}
 
 	/**
@@ -88,8 +94,7 @@ public abstract class Installation {
 	 * @param voyage
 	 */
 	public void addDeparture(Voyage voyage) {
-		// TODO - implement Installation.addDeparture
-		throw new UnsupportedOperationException();
+		this.departures.add(voyage);
 	}
 
 }

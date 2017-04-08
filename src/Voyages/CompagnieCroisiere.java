@@ -9,33 +9,4 @@ public class CompagnieCroisiere extends Compagnie {
         super(id, nom, idVoyagePrefix);
     }
 
-    @Override
-    public ArrayList<Voyage> consulteVoyages() {
-        return null;
-    }
-
-    @Override
-    public void modifier(String nom, String idVoyage) {
-
-    }
-
-    @Override
-    public void addVoyage(Voyage voyage, String idVoyage) {
-
-    }
-
-    @Override
-    public void addPrice(String voyageId, double prix) {
-
-    }
-
-    @Override
-    public void creerDetailVoyage(Time hDep, Time hArr) {
-
-    }
-
-    @Override
-    public void addDetail(String idDetail, Voyage voyage) {
-
-    }
 }

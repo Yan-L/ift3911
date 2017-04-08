@@ -1,41 +1,63 @@
 package Voyages;
 
+import java.sql.Time;
+import java.util.ArrayList;
+
 public class DetailsVoyage implements IVisitable {
 
-	private string Id;
-	private double Duree;
+	private String Id;
+	private long duree;
+	private ArrayList<Voyage> voyages;
+	private String cieName;
 
-	public string getCieName() {
-		// TODO - implement DetailsVoyage.getCieName
-		throw new UnsupportedOperationException();
+	public DetailsVoyage(String id, Time hDep, Time hArr, String nom) {
+		Id = id;
+		duree = calculDuree(hDep, hArr);
+		voyages = new ArrayList<Voyage>();
+		cieName = nom;
+	}
+
+	public ArrayList<Voyage> getVoyages() {
+		return voyages;
+	}
+
+	public long getDuree() {
+		return duree;
+	}
+
+	public String getCieName() {
+		return cieName;
+	}
+
+	public String getId() {
+		return Id;
 	}
 
 	/**
-	 * 
+	 * ajoute un voyage
 	 * @param voyage
 	 */
 	public void addVoyage(Voyage voyage) {
-		// TODO - implement DetailsVoyage.addVoyage
-		throw new UnsupportedOperationException();
+		this.voyages.add(voyage);
 	}
 
 	/**
-	 * 
+	 * juste le prix pou tous les vols
 	 * @param prix
 	 */
-	public double addPrice(double prix) {
-		// TODO - implement DetailsVoyage.addPrice
-		throw new UnsupportedOperationException();
+	public void addPrice(double prix) {
+		for(int i = 0; i<this.voyages.size(); i++){
+			voyages.get(i).setPrix(prix);
+		}
 	}
 
 	/**
-	 * 
-	 * @param hdep
+	 * calcul la duree d'un voyage
+	 * @param hDep
 	 * @param hArr
 	 */
-	private double calculDuree(Time hdep, Time hArr) {
-		// TODO - implement DetailsVoyage.calculDuree
-		throw new UnsupportedOperationException();
+	private long calculDuree(Time hDep, Time hArr) {
+		return hArr.getTime() - hDep.getTime();
 	}
 
 }
