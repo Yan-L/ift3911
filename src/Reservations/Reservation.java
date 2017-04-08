@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import Client.Observateur;
+import Client.ReservState;
 import Client.Sujet;
 import Voyages.UniteParVoyage;
 
@@ -12,10 +13,10 @@ public class Reservation implements IReservation, Sujet {
 	private double Montant;
 	private String noReservation;
 	private boolean Confirmer = false;
-	//private State state;
+	private ReservState state;
 	private List<Observateur> observers;
-	private UniteParVoyage message;
 	private boolean changed;
+	
 
 	/*
 	 * J'ai rajouté les fonctions pour attacher les observers, les détacher et les notifier. ça les notifie automatiquement lorsqu'il
@@ -28,7 +29,7 @@ public class Reservation implements IReservation, Sujet {
 		}
 		if(!observers.contains(obj)){
 			observers.add(obj);
-			//obj.setSubject(this);
+			obj.setSubject(this);
 		}
 	}
 
@@ -49,17 +50,17 @@ public class Reservation implements IReservation, Sujet {
 			obj.update();
 		}
 	}
-	public UniteParVoyage getUpdate(Observateur obj){
-		return this.message;
+	public ReservState getUpdate(Observateur obj){
+		return this.state;
 	}
 	public double modifier(UniteParVoyage unitee){
 		this.changed = true;
-		this.message = unitee;
+		this.state.setMessage(unitee);
+		this.state.setNoReserv(this.noReservation);
 		this.notify();
 		//todo : La fonction de modification
 		return Montant;
 	}
-
 
 	public double calculerFrais() {
 		// TODO Auto-generated method stub
@@ -80,6 +81,14 @@ public class Reservation implements IReservation, Sujet {
 	public String paiementReservation(String noCarte, Date exp) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public String getNoReservation() {
+		return noReservation;
+	}
+
+	public void setNoReservation(String noReservation) {
+		this.noReservation = noReservation;
 	}
 
 }
