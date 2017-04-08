@@ -2,13 +2,7 @@ package Administration;
 
 public class CreerCie implements Command {
 
-	/**
-	 * 
-	 * @param id
-	 * @param nom
-	 * @param idVoyage
-	 */
-	public void execute(string id, string nom, string idVoyage) {
+	public void execute() {
 		// TODO - implement CreerCie.execute
 		throw new UnsupportedOperationException();
 	}
