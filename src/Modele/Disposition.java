@@ -3,8 +3,8 @@ package Modele;
 public abstract class Disposition {
 
 	private char Symbole;
-	private string Description;
-	private string positionAile;
+	private String Description;
+	private String positionAile;
 	private int nbRangees;
 	private int nbColonnes;
 

@@ -6,12 +6,7 @@ public class ModifierCie implements Command {
 
 	private Compagnie idCie;
 
-	/**
-	 * 
-	 * @param nom
-	 * @param idVoyage
-	 */
-	public void execute(string nom, string idVoyage) {
+	public void execute() {
 		// TODO - implement ModifierCie.execute
 		throw new UnsupportedOperationException();
 	}

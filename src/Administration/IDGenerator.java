@@ -9,11 +9,11 @@ public class IDGenerator {
 		throw new UnsupportedOperationException();
 	}
 
-	public static IDGenerator getInstance() {
+	public IDGenerator getInstance() {
 		return this.instance;
 	}
 
-	public string generate() {
+	public String generate() {
 		// TODO - implement IDGenerator.generate
 		throw new UnsupportedOperationException();
 	}
