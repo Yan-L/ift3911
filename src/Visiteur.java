@@ -1,27 +1,33 @@
+
+import Voyages.Compagnie;
+import Voyages.DetailsVoyage;
+import Voyages.UniteParVoyage;
+import Voyages.Voyage;
+
 public interface Visiteur {
 
 	/**
 	 * 
 	 * @param Voyage
 	 */
-	void VisiteVoyage(v Voyage);
+	void VisiteVoyage(Voyage v);
 
 	/**
 	 * 
 	 * @param Compagnie
 	 */
-	void VisiteCompagnie(c Compagnie);
+	void VisiteCompagnie(Compagnie c);
 
 	/**
 	 * 
 	 * @param DetailsVoyage
 	 */
-	void VisiteDetailsVoyage(v DetailsVoyage);
+	void VisiteDetailsVoyage(DetailsVoyage d);
 
 	/**
 	 * 
 	 * @param UniteParVoyage
 	 */
-	void VisiteUniteParVoyage(u UniteParVoyage);
+	void VisiteUniteParVoyage(UniteParVoyage u);
 
 }
