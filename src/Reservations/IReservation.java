@@ -1,5 +1,7 @@
 package Reservations;
 
+import java.util.Date;
+
 import Voyages.*;
 
 public interface IReservation {
@@ -25,13 +27,13 @@ public interface IReservation {
 	 * @param passeport
 	 * @param exp
 	 */
-	void addPassager(string nom, string prenom, string adresse, string courriel, string telephone, Date naissance, string passeport, Date exp);
+	void addPassager(String nom, String prenom, String adresse, String courriel, String telephone, Date naissance, String passeport, Date exp);
 
 	/**
 	 * 
 	 * @param noCarte
 	 * @param exp
 	 */
-	string paiementReservation(string noCarte, Date exp);
+	String paiementReservation(String noCarte, Date exp);
 
 }

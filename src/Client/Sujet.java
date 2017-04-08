@@ -6,14 +6,14 @@ public interface Sujet {
 	 * 
 	 * @param Observer
 	 */
-	void attach(int Observer);
+	void attach(Observateur obs);
 
 	/**
 	 * 
 	 * @param Observer
 	 */
-	void detach(int Observer);
+	void detach(Observateur obs);
 
-	void notify();
+	void notifyObs();
 
 }

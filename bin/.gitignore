@@ -1,0 +1,13 @@
+/.classpath
+/.project
+/Administration/
+/Client/
+/IVisitable.class
+/Modele/
+/ModeleImplementation/
+/Paiements/
+/Reservations/
+/Visiteur.class
+/Voyages/
+/VérificationVoyage.class
+/pom.xml
