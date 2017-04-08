@@ -21,8 +21,15 @@ public abstract class Voyage implements IVisitable, Sujet {
 	private Vehicule Vehicule;
 	private String Id;
 	private VoyageState state;
-	private List<Observateur> observers;
+	private ArrayList<Observateur> observers;
 	private boolean changed;
+
+	public Voyage(String id, Time hDep, Time hArr, Date date) {
+		HeureDepart = hDep;
+		HeureArrivee = hArr;
+		DateDepart = date;
+		Id = id;
+	}
 
 	/**
 	 * 
