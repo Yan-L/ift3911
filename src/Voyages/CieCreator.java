@@ -3,22 +3,21 @@ package Voyages;
 public abstract class CieCreator {
 
 	/**
-	 * 
-	 * @param id
-	 * @param nom
-	 * @param idVoyage
+	 * create a Compagnie
+	 * @param id id of the object
+	 * @param nom compagny's name
+	 * @param idVoyage id for all Voyage
 	 */
-	public Compagnie makeCie(string id, string nom, string idVoyage) {
-		// TODO - implement CieCreator.makeCie
-		throw new UnsupportedOperationException();
+	public Compagnie makeCie(String id, String nom, String idVoyage) {
+		return factoryMethod(id, nom, idVoyage);
 	}
 
 	/**
 	 * 
-	 * @param id
-	 * @param nom
-	 * @param idVoyage
+	 * @param id id of the object
+	 * @param nom compagny's name
+	 * @param idVoyage id for all Voyage
 	 */
-	protected abstract Compagnie factoryMethod(string id, string nom, string idVoyage);
+	protected abstract Compagnie factoryMethod(String id, String nom, String idVoyage);
 
 }
