@@ -6,13 +6,7 @@ public class ModifierInstallation implements Command {
 
 	private Installation idInstallation;
 
-	/**
-	 *
-	 * @param id
-	 * @param ville
-	 * @param nom
-	 */
-	public void execute(string id, string ville, string nom) {
+	public void execute() {
 		// TODO - implement ModifierInstallation.execute
 		throw new UnsupportedOperationException();
 	}

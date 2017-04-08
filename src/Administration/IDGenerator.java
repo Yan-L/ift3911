@@ -13,7 +13,7 @@ public class IDGenerator {
 		return this.instance;
 	}
 
-	public string generate() {
+	public String generate() {
 		// TODO - implement IDGenerator.generate
 		throw new UnsupportedOperationException();
 	}

@@ -1,11 +1,12 @@
 package Administration;
 
 import Voyages.*;
+import java.util.List;
 
 public class Invoker {
 
 	private List<Voyage> voyagesLst;
-	private List<installation> installationsLst;
+	private List<Installation> installationsLst;
 	private List<Compagnie> cieLst;
 	private List<Command> commandLst;
 
