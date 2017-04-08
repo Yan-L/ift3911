@@ -2,26 +2,20 @@ package Voyages;
 
 public class CieCroisiereCreator extends CieCreator {
 
-	private CieCroisiereCreator instance;
+	private static CieCroisiereCreator instance;
 
-	private CieCroisiereCreator() {
-		// TODO - implement CieCroisiereCreator.CieCroisiereCreator
-		throw new UnsupportedOperationException();
-	}
+	private CieCroisiereCreator() {}
 
 	public static CieCroisiereCreator getInstance() {
-		return this.instance;
+		if(instance==null){
+			instance = new CieCroisiereCreator();
+		}
+		return instance;
 	}
 
-	/**
-	 * 
-	 * @param id
-	 * @param nom
-	 * @param idVoyage
-	 */
-	protected Compagnie factoryMethod(string id, string nom, string idVoyage) {
-		// TODO - implement CieCroisiereCreator.factoryMethod
-		throw new UnsupportedOperationException();
-	}
 
+	@Override
+	protected Compagnie factoryMethod(String id, String nom, String idVoyage) {
+		return new CompagnieCroisiere(id, nom, idVoyage);
+	}
 }
