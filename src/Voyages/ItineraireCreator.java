@@ -1,28 +1,24 @@
 package Voyages;
 
+import java.sql.Time;
+import java.util.Date;
+
 public class ItineraireCreator extends VoyageCreator {
 
-	private ItineraireCreator instance;
+	private static ItineraireCreator instance;
 
-	private ItineraireCreator() {
-		// TODO - implement ItineraireCreator.ItineraireCreator
-		throw new UnsupportedOperationException();
-	}
+	private ItineraireCreator() {}
 
 	public static ItineraireCreator getInstance() {
-		return this.instance;
+		if(instance == null){
+			instance = new ItineraireCreator();
+		}
+		return instance;
 	}
 
-	/**
-	 * 
-	 * @param id
-	 * @param hDep
-	 * @param hArr
-	 * @param date
-	 */
-	protected Voyage factoryMethod(string id, Time hDep, Time hArr, Date date) {
-		// TODO - implement ItineraireCreator.factoryMethod
-		throw new UnsupportedOperationException();
-	}
 
+	@Override
+	protected Voyage factoryMethod(String id, Time hDep, Time hArr, Date date) {
+		return new Itineraire(id, hDep, hArr, date);
+	}
 }

@@ -1,8 +1,11 @@
 package Voyages;
 
 import Modele.*;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Date;
 
-public abstract class Voyage implements IVisitable, IVisitable {
+public abstract class Voyage implements IVisitable {
 
 	private double Prix;
 	private Time HeureDepart;
@@ -10,10 +13,82 @@ public abstract class Voyage implements IVisitable, IVisitable {
 	private Date DateDepart;
 	private Installation LieuDepart;
 	private Installation LieuDarrivee;
-	private List<Installation> Visites;
+	private ArrayList<Installation> Visites;
 	private Vehicule Vehicule;
-	private string Id;
-	private State state;
+	private String Id;
+	private String state;
+
+	public Voyage(String id, Time hDep, Time hArr, Date date) {
+		HeureDepart = hDep;
+		HeureArrivee = hArr;
+		DateDepart = date;
+		Id = id;
+		Visites = new ArrayList<Installation>();
+	}
+
+	public double getPrix() {
+		return Prix;
+	}
+
+	public Time getHeureDepart() {
+		return HeureDepart;
+	}
+
+	public Time getHeureArrivee() {
+		return HeureArrivee;
+	}
+
+	public Date getDateDepart() {
+		return DateDepart;
+	}
+
+	public Installation getLieuDepart() {
+		return LieuDepart;
+	}
+
+	public Installation getLieuDarrivee() {
+		return LieuDarrivee;
+	}
+
+	public ArrayList<Installation> getVisites() {
+		return Visites;
+	}
+
+	public Modele.Vehicule getVehicule() {
+		return Vehicule;
+	}
+
+	public String getId() {
+		return Id;
+	}
+
+	public void setPrix(double prix) {
+		Prix = prix;
+	}
+
+	public void setHeureDepart(Time heureDepart) {
+		HeureDepart = heureDepart;
+	}
+
+	public void setHeureArrivee(Time heureArrivee) {
+		HeureArrivee = heureArrivee;
+	}
+
+	public void setDateDepart(Date dateDepart) {
+		DateDepart = dateDepart;
+	}
+
+	public void setVisites(ArrayList<Installation> visites) {
+		Visites = visites;
+	}
+
+	public void setId(String id) {
+		Id = id;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
 
 	/**
 	 * 
@@ -31,7 +106,7 @@ public abstract class Voyage implements IVisitable, IVisitable {
 	 * 
 	 * @param sectionType
 	 */
-	public List<Unite> uniteeDisponible(string sectionType) {
+	public ArrayList<Unite> uniteeDisponible(String sectionType) {
 		// TODO - implement Voyage.uniteeDisponible
 		throw new UnsupportedOperationException();
 	}
@@ -40,7 +115,7 @@ public abstract class Voyage implements IVisitable, IVisitable {
 	 * 
 	 * @param section
 	 */
-	public int nbUniteesDispo(string section) {
+	public int nbUniteesDispo(String section) {
 		// TODO - implement Voyage.nbUniteesDispo
 		throw new UnsupportedOperationException();
 	}
@@ -90,7 +165,7 @@ public abstract class Voyage implements IVisitable, IVisitable {
 		throw new UnsupportedOperationException();
 	}
 
-	public State getState() {
+	public String getState() {
 		return this.state;
 	}
 

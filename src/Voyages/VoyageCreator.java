@@ -1,5 +1,8 @@
 package Voyages;
 
+import java.sql.Time;
+import java.util.Date;
+
 public abstract class VoyageCreator {
 
 	/**
@@ -9,9 +12,8 @@ public abstract class VoyageCreator {
 	 * @param hArr
 	 * @param date
 	 */
-	public Voyage makeVoyage(string id, Time hDep, Time hArr, Date date) {
-		// TODO - implement VoyageCreator.makeVoyage
-		throw new UnsupportedOperationException();
+	public Voyage makeVoyage(String id, Time hDep, Time hArr, Date date) {
+		return factoryMethod(id, hDep, hArr, date);
 	}
 
 	/**
@@ -21,6 +23,6 @@ public abstract class VoyageCreator {
 	 * @param hArr
 	 * @param date
 	 */
-	protected abstract Voyage factoryMethod(string id, Time hDep, Time hArr, Date date);
+	protected abstract Voyage factoryMethod(String id, Time hDep, Time hArr, Date date);
 
 }
