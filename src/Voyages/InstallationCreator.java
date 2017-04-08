@@ -8,9 +8,8 @@ public abstract class InstallationCreator {
 	 * @param ville
 	 * @param nom
 	 */
-	public Installation makeInstallation(string id, string ville, string nom) {
-		// TODO - implement InstallationCreator.makeInstallation
-		throw new UnsupportedOperationException();
+	public Installation makeInstallation(String id, String ville, String nom) {
+		return factoryMethod(id, ville, nom);
 	}
 
 	/**
@@ -19,6 +18,6 @@ public abstract class InstallationCreator {
 	 * @param ville
 	 * @param nom
 	 */
-	protected abstract Installation factoryMethod(string id, string ville, string nom);
+	protected abstract Installation factoryMethod(String id, String ville, String nom);
 
 }

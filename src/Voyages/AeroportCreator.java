@@ -2,26 +2,19 @@ package Voyages;
 
 public class AeroportCreator extends InstallationCreator {
 
-	private AeroportCreator instance;
+	private static AeroportCreator instance;
 
-	private AeroportCreator() {
-		// TODO - implement AeroportCreator.AeroportCreator
-		throw new UnsupportedOperationException();
-	}
+	private AeroportCreator() {}
 
 	public static AeroportCreator getInstance() {
-		return this.instance;
+		if(instance == null) {
+			instance = new AeroportCreator();
+		}
+		return instance;
 	}
 
-	/**
-	 * 
-	 * @param id
-	 * @param ville
-	 * @param nom
-	 */
-	protected Installation factoryMethod(string id, string ville, string nom) {
-		// TODO - implement AeroportCreator.factoryMethod
-		throw new UnsupportedOperationException();
+	@Override
+	protected Installation factoryMethod(String id, String ville, String nom) {
+		return new Aeroport(id, ville, nom);
 	}
-
 }
