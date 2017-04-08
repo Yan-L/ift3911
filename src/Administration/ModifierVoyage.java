@@ -7,7 +7,7 @@ public class ModifierVoyage implements Command {
 	private Voyage idvoyage;
 
 	/**
-	 * 
+	 *
 	 * @param hdep
 	 * @param hArr
 	 * @param date

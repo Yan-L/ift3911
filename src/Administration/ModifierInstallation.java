@@ -7,7 +7,7 @@ public class ModifierInstallation implements Command {
 	private Installation idInstallation;
 
 	/**
-	 * 
+	 *
 	 * @param id
 	 * @param ville
 	 * @param nom
