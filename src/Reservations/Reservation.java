@@ -32,7 +32,7 @@ public class Reservation implements IReservation, Sujet {
 		}
 	}
 
-///Test
+///Test sdafsad
 	public void detach(Observateur obj){
 		if(obj == null){
 			throw new  NullPointerException("Null Observer");
