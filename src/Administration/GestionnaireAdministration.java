@@ -1,8 +1,9 @@
 package Administration;
 
 import Voyages.*;
+import java.util.List;
 
-public class GestionnaireAdministration implements ServiceAdministration {
+public class GestionnaireAdministration {
 
 	private List<Voyage> voyagesLst;
 	private List<Installation> installationsLts;
@@ -12,7 +13,7 @@ public class GestionnaireAdministration implements ServiceAdministration {
 	 * 
 	 * @param nom
 	 */
-	private Compagnie recupereCie(string nom) {
+	private Compagnie recupereCie(String nom) {
 		// TODO - implement GestionnaireAdministration.recupereCie
 		throw new UnsupportedOperationException();
 	}
@@ -21,7 +22,7 @@ public class GestionnaireAdministration implements ServiceAdministration {
 	 * 
 	 * @param id
 	 */
-	private Installation recupereInstallation(string id) {
+	private Installation recupereInstallation(String id) {
 		// TODO - implement GestionnaireAdministration.recupereInstallation
 		throw new UnsupportedOperationException();
 	}

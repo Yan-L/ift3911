@@ -2,13 +2,8 @@ package Administration;
 
 public class CreerInstallation implements Command {
 
-	/**
-	 * 
-	 * @param id
-	 * @param ville
-	 * @param nom
-	 */
-	public void execute(string id, string ville, string nom) {
+
+	public void execute() {
 		// TODO - implement CreerInstallation.execute
 		throw new UnsupportedOperationException();
 	}
