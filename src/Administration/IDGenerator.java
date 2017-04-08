@@ -9,7 +9,7 @@ public class IDGenerator {
 		throw new UnsupportedOperationException();
 	}
 
-	public static IDGenerator getInstance() {
+	public IDGenerator getInstance() {
 		return this.instance;
 	}
 
