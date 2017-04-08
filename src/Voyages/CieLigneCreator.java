@@ -2,15 +2,16 @@ package Voyages;
 
 public class CieLigneCreator extends CieCreator {
 
-	private CieLigneCreator instance;
+	private static CieLigneCreator instance;
 
 	private CieLigneCreator() {
-		// TODO - implement CieLigneCreator.CieLigneCreator
-		throw new UnsupportedOperationException();
 	}
 
 	public static CieLigneCreator getInstance() {
-		return this.instance;
+		if(instance == null){
+			instance = new CieLigneCreator();
+		}
+		return instance;
 	}
 
 	/**
@@ -19,9 +20,8 @@ public class CieLigneCreator extends CieCreator {
 	 * @param nom
 	 * @param idVoyage
 	 */
-	protected Compagnie factoryMethod(string id, string nom, string idVoyage) {
-		// TODO - implement CieLigneCreator.factoryMethod
-		throw new UnsupportedOperationException();
+	@Override
+	protected Compagnie factoryMethod(String id, String nom, String idVoyage) {
+		return new CompagnieLigne(id,nom,idVoyage);
 	}
-
 }

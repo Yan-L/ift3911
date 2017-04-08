@@ -2,26 +2,20 @@ package Voyages;
 
 public class GareCreator extends InstallationCreator {
 
-	private GareCreator instance;
+	private static GareCreator instance;
 
-	private GareCreator() {
-		// TODO - implement GareCreator.GareCreator
-		throw new UnsupportedOperationException();
-	}
+	private GareCreator() {}
 
 	public static GareCreator getInstance() {
-		return this.instance;
+		if(instance == null){
+			instance = new GareCreator();
+		}
+		return instance;
 	}
 
-	/**
-	 * 
-	 * @param id
-	 * @param ville
-	 * @param nom
-	 */
-	protected Installation factoryMethod(string id, string ville, string nom) {
-		// TODO - implement GareCreator.factoryMethod
-		throw new UnsupportedOperationException();
-	}
 
+	@Override
+	protected Installation factoryMethod(String id, String ville, String nom) {
+		return new Gare(id, ville, nom);
+	}
 }

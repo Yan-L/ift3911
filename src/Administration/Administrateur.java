@@ -1,14 +1,15 @@
 package Administration;
 
 import Voyages.*;
+import java.util.Date;
+import java.util.List;
 
 public class Administrateur {
 
 	private String nom;
 	private String userNam;
 	private String password;
-	private State state;
- //testtestest
+	//private State state;
 
 
 	/**
@@ -21,7 +22,7 @@ public class Administrateur {
 	 * @param date
 	 * @param prix
 	 */
-	public void creerItineraire(string cieNom, string idDetail, List<string> lieux, Time hDep, Time hArr, Date date, double prix) {
+	public void creerItineraire(String cieNom, String idDetail, List<String> lieux, Date hDep, Date hArr, Date date, double prix) {
 		// TODO - implement Administrateur.creerItineraire
 		throw new UnsupportedOperationException();
 	}
@@ -69,7 +70,7 @@ public class Administrateur {
 	 * @param date
 	 * @param prix
 	 */
-	public void CreerVoyage(string cieNom, string idDetail, List<string> lieux, Time hDep, Time hArr, Date date, double prix) {
+	public void CreerVoyage(String cieNom, String idDetail, List<String> lieux, Date hDep, Date hArr, Date date, double prix) {
 		// TODO - implement Administrateur.CreerVoyage
 		throw new UnsupportedOperationException();
 	}
@@ -80,7 +81,7 @@ public class Administrateur {
 	 * @param ville
 	 * @param nom
 	 */
-	public void CreerInstallation(string id, string ville, string nom) {
+	public void CreerInstallation(String id, String ville, String nom) {
 		// TODO - implement Administrateur.CreerInstallation
 		throw new UnsupportedOperationException();
 	}
@@ -91,7 +92,7 @@ public class Administrateur {
 	 * @param nom
 	 * @param idVoyage
 	 */
-	public void CreerCie(string id, string nom, string idVoyage) {
+	public void CreerCie(String id, String nom, String idVoyage) {
 		// TODO - implement Administrateur.CreerCie
 		throw new UnsupportedOperationException();
 	}
@@ -103,7 +104,7 @@ public class Administrateur {
 	 * @param date
 	 * @param prix
 	 */
-	public void ModifierVoyage(Time hdep, Time hArr, Date date, double prix) {
+	public void ModifierVoyage(Date hdep, Date hArr, Date date, double prix) {
 		// TODO - implement Administrateur.ModifierVoyage
 		throw new UnsupportedOperationException();
 	}
@@ -114,7 +115,7 @@ public class Administrateur {
 	 * @param ville
 	 * @param nom
 	 */
-	public void ModifierInstallation(string id, string ville, string nom) {
+	public void ModifierInstallation(String id, String ville, String nom) {
 		// TODO - implement Administrateur.ModifierInstallation
 		throw new UnsupportedOperationException();
 	}
@@ -124,7 +125,7 @@ public class Administrateur {
 	 * @param nom
 	 * @param idVoyage
 	 */
-	public void ModifierCie(string nom, string idVoyage) {
+	public void ModifierCie(String nom, String idVoyage) {
 		// TODO - implement Administrateur.ModifierCie
 		throw new UnsupportedOperationException();
 	}
@@ -133,7 +134,7 @@ public class Administrateur {
 	 * 
 	 * @param idvoyage
 	 */
-	public void SupprimerVoyage(string idvoyage) {
+	public void SupprimerVoyage(String idvoyage) {
 		// TODO - implement Administrateur.SupprimerVoyage
 		throw new UnsupportedOperationException();
 	}
@@ -142,7 +143,7 @@ public class Administrateur {
 	 * 
 	 * @param idinstallation
 	 */
-	public void SupprimerInstallation(string idinstallation) {
+	public void SupprimerInstallation(String idinstallation) {
 		// TODO - implement Administrateur.SupprimerInstallation
 		throw new UnsupportedOperationException();
 	}
@@ -151,7 +152,7 @@ public class Administrateur {
 	 * 
 	 * @param idCie
 	 */
-	public void SupprimerCie(string idCie) {
+	public void SupprimerCie(String idCie) {
 		// TODO - implement Administrateur.SupprimerCie
 		throw new UnsupportedOperationException();
 	}
@@ -164,7 +165,7 @@ public class Administrateur {
 	 * @param Arrive
 	 * @param Depart
 	 */
-	public void CreerEscale(String idCie, string idVoyage, string Instalation, Date Arrive, Date Depart) {
+	public void CreerEscale(String idCie, String idVoyage, String Instalation, Date Arrive, Date Depart) {
 		// TODO - implement Administrateur.CreerEscale
 		throw new UnsupportedOperationException();
 	}

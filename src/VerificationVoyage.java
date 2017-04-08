@@ -8,7 +8,7 @@ public class VerificationVoyage implements Visiteur {
 
     @Override
     public void VisiteVoyage(Voyage v) {
-        
+
     }
 
     @Override
