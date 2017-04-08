@@ -1,8 +1,15 @@
 package Voyages;
 
+import java.sql.Time;
+import java.util.Date;
+import java.util.List;
+
+import Administration.VoyageState;
+import Client.Observateur;
+import Client.Sujet;
 import Modele.*;
 
-public abstract class Voyage implements IVisitable, IVisitable {
+public abstract class Voyage implements IVisitable, Sujet {
 
 	private double Prix;
 	private Time HeureDepart;
@@ -12,8 +19,10 @@ public abstract class Voyage implements IVisitable, IVisitable {
 	private Installation LieuDarrivee;
 	private List<Installation> Visites;
 	private Vehicule Vehicule;
-	private string Id;
-	private State state;
+	private String Id;
+	private VoyageState state;
+	private List<Observateur> observers;
+	private boolean changed;
 
 	/**
 	 * 
@@ -31,7 +40,7 @@ public abstract class Voyage implements IVisitable, IVisitable {
 	 * 
 	 * @param sectionType
 	 */
-	public List<Unite> uniteeDisponible(string sectionType) {
+	public List<Unite> uniteeDisponible(String sectionType) {
 		// TODO - implement Voyage.uniteeDisponible
 		throw new UnsupportedOperationException();
 	}
@@ -40,7 +49,7 @@ public abstract class Voyage implements IVisitable, IVisitable {
 	 * 
 	 * @param section
 	 */
-	public int nbUniteesDispo(string section) {
+	public int nbUniteesDispo(String section) {
 		// TODO - implement Voyage.nbUniteesDispo
 		throw new UnsupportedOperationException();
 	}
@@ -89,18 +98,34 @@ public abstract class Voyage implements IVisitable, IVisitable {
 		// TODO - implement Voyage.setVehicule
 		throw new UnsupportedOperationException();
 	}
-
-	public State getState() {
-		return this.state;
+	public void attach(Observateur obj){
+		if(obj == null){
+			throw new  NullPointerException("Null Observer");
+		}
+		if(!observers.contains(obj)){
+			observers.add(obj);
+			obj.setSubject(this);
+		}
 	}
 
-	/**
-	 * 
-	 * @param State
-	 */
-	public void setState(int State) {
-		// TODO - implement Voyage.setState
-		throw new UnsupportedOperationException();
+	public void detach(Observateur obj){
+		if(obj == null){
+			throw new  NullPointerException("Null Observer");
+		}
+		observers.remove(obj);
+	}
+
+	public void notifyObs(){
+		if(!changed){
+			return;
+		}
+		this.changed = false;
+		for(Observateur obj : this.observers){
+			obj.update();
+		}
+	}
+	public VoyageState getUpdate(Observateur obj){
+		return this.state;
 	}
 
 }
