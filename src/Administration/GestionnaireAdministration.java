@@ -27,4 +27,10 @@ public class GestionnaireAdministration {
 		throw new UnsupportedOperationException();
 	}
 
+	public List<Voyage> getVoyagesLst() {
+		return voyagesLst;
+	}
+
+	
+	
 }
