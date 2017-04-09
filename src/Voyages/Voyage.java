@@ -2,6 +2,7 @@ package Voyages;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 
 import Administration.VoyageState;
 import Client.Observateur;
@@ -28,9 +29,9 @@ public abstract class Voyage implements IVisitable, Sujet {
 	private boolean changed;
 
 	public Voyage(String id, Time hDep, Time hArr, Date date) {
-		HeureDepart = hDep;
-		HeureArrivee = hArr;
-		DateDepart = date;
+		setHeureDepart(hDep);
+		setHeureArrivee(hArr);
+		setDateDepart(date);
 		Id = id;
 		Visites = new ArrayList<Installation>();
 		unites = new ArrayList<UniteParVoyage>();
@@ -52,9 +53,9 @@ public abstract class Voyage implements IVisitable, Sujet {
 	 * @param prix
 	 */
 	public void modifier(Time hdep, Time hArr, Date date, double prix) {
-		HeureDepart = hdep;
-		HeureArrivee = hArr;
-		DateDepart = date;
+		setHeureDepart(hdep);
+		setHeureArrivee(hArr);
+		setDateDepart(date);
 		Prix = prix;
 	}
 
@@ -80,7 +81,24 @@ public abstract class Voyage implements IVisitable, Sujet {
 	public int nbUniteesDispo(String section) {
 		return uniteeDisponible(section).size();
 	}
-
+	
+	public ArrayList<UniteParVoyage> uniteeTotal(String sectionType) {
+		ArrayList<UniteParVoyage> libre = new ArrayList<UniteParVoyage>();
+		for(int i = 0; i<unites.size(); i++){
+			UniteParVoyage uPV = unites.get(i);
+			libre.add(uPV);
+			
+		}
+		return libre;
+	}
+	
+	public int nbUniteesSection(String section)
+	{
+		return uniteeTotal(section).size();
+		
+	}
+	
+	
 	/**
 	 * 
 	 * @param LieuDepart
@@ -89,6 +107,15 @@ public abstract class Voyage implements IVisitable, Sujet {
 		this.LieuDepart = LieuDepart;
 	}
 
+	
+	
+	public Installation getLieuDepart() {
+		return this.LieuDepart;
+	}
+	
+	public Installation getLieuDarrivee() {
+		return this.LieuDarrivee;
+	}
 	/**
 	 * 
 	 * @param LieuDarrivee
@@ -96,7 +123,7 @@ public abstract class Voyage implements IVisitable, Sujet {
 	public void setLieuDarrivee(Installation LieuDarrivee) {
 		this.LieuDarrivee = LieuDarrivee;
 	}
-
+	
 	/**
 	 * 
 	 * @param Visite
@@ -119,7 +146,13 @@ public abstract class Voyage implements IVisitable, Sujet {
 			}
 		}
 	}
-
+	public Vehicule getVehicule(){
+		return this.Vehicule;
+	}
+	public ArrayList<UniteParVoyage> getListeUnite(){
+		return this.unites;
+	}
+	
 	public void attach(Observateur obj){
 		if(obj == null){
 			throw new  NullPointerException("Null Observer");
@@ -149,5 +182,33 @@ public abstract class Voyage implements IVisitable, Sujet {
 	public VoyageState getUpdate(Observateur obj){
 		return this.state;
 	}
+	
+	public List<String> accept(Visiteur v){
+		
+		return v.Visite(this);
+	}
 
+	public Date getDateDepart() {
+		return DateDepart;
+	}
+
+	public void setDateDepart(Date dateDepart) {
+		DateDepart = dateDepart;
+	}
+
+	public Time getHeureArrivee() {
+		return HeureArrivee;
+	}
+
+	public void setHeureArrivee(Time heureArrivee) {
+		HeureArrivee = heureArrivee;
+	}
+
+	public Time getHeureDepart() {
+		return HeureDepart;
+	}
+
+	public void setHeureDepart(Time heureDepart) {
+		HeureDepart = heureDepart;
+	}
 }

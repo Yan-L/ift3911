@@ -3,6 +3,7 @@ package Voyages;
 import Modele.Unite;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UniteParVoyage implements IVisitable{
 
@@ -71,5 +72,8 @@ public class UniteParVoyage implements IVisitable{
 			return allState.get(2);
 		}
 	}
-
+	public List<String> accept(Visiteur v){
+		
+		return v.Visite(this);
+	}
 }
