@@ -50,7 +50,7 @@ public class Administrateur implements Observateur{
 		{
 			if(Endroit==listVoyage.get(i).getLieuDarrivee() || Endroit==listVoyage.get(i).getLieuDarrivee())
 			{
-				//ici on va chercher les information au sujet du voyage soit l'installation de départ-d'arriver  
+				//ici on va chercher les information au sujet du voyage soit l'installation de départ-d'arriver   
 				//, la compagnie, le numéro du vol, la date de départ et d'arrivé.
 				ListeTexte.addAll(listVoyage.get(i).accept(visiteurObjet));
 				Affichage=ListeTexte.get(0)+"-"+ListeTexte.get(1)+":["+ListeTexte.get(2)+"]"+ListeTexte.get(3)
