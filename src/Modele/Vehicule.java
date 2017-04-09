@@ -3,7 +3,7 @@ package Modele;
 import Voyages.IVisitable;
 import java.util.ArrayList;
 
-public abstract class Vehicule implements accept, IVisitable {
+public abstract class Vehicule implements IVisitable {
 
 	private String Id;
 	private String nomModel;
