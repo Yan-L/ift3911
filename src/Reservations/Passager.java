@@ -1,5 +1,7 @@
 package Reservations;
 
+import java.util.Date;
+
 public class Passager {
 
 	private String nom;

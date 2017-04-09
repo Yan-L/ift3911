@@ -2,7 +2,7 @@ package Voyages;
 
 import java.sql.Time;
 import java.util.ArrayList;
-
+import java.util.List;
 public class DetailsVoyage implements IVisitable {
 
 	private String Id;
@@ -59,5 +59,8 @@ public class DetailsVoyage implements IVisitable {
 	private long calculDuree(Time hDep, Time hArr) {
 		return hArr.getTime() - hDep.getTime();
 	}
-
+	public List<String> accept(Visiteur v){
+		
+		return v.Visite(this);
+	}
 }

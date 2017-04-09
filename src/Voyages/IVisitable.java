@@ -1,12 +1,14 @@
 package Voyages;
 
+import java.util.List;
+
 public interface IVisitable {
 
 	/**
 	 * 
 	 * @param v
 	 */
-	//comment pour essayer un commit.
-	//void accept(Visitor v);
+	
+	public List<String> accept(Visiteur v);
 
 }

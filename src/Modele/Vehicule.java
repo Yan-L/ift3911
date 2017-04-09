@@ -1,9 +1,12 @@
 package Modele;
 
 import Voyages.IVisitable;
-import java.util.ArrayList;
+import Voyages.Visiteur;
 
-public abstract class Vehicule implements accept, IVisitable {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Vehicule implements IVisitable {
 
 	private String Id;
 	private String nomModel;
@@ -30,6 +33,19 @@ public abstract class Vehicule implements accept, IVisitable {
 	public void creerDisposition(String type, int nbRangees) {
 		// TODO - implement Vehicule.creerDisposition
 		throw new UnsupportedOperationException();
+	}
+	public List<String> accept(Visiteur v){
+		
+		return v.Visite(this);
+	}
+
+
+	public String getNomModel() {
+		return nomModel;
+	}
+
+	public void setNomModel(String nomModel) {
+		this.nomModel = nomModel;
 	}
 
 }
