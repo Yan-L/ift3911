@@ -6,18 +6,20 @@ import java.util.List;
 import Client.Observateur;
 import Client.ReservState;
 import Client.Sujet;
+import Paiements.Paiement;
+import Paiements.PaiementCredit;
 import Voyages.UniteParVoyage;
 
 public class Reservation implements IReservation, Sujet {
 
-	private double Montant;
+	private double montant;
 	private String noReservation;
-	private boolean Confirmer = false;
+	private boolean confirmer = false;
 	private ReservState state;
 	private List<Observateur> observers;
 	private boolean changed;
-	
-
+	private PaiementCredit paiement;
+	private Passager passager = null;
 	/*
 	 * J'ai rajouté les fonctions pour attacher les observers, les détacher et les notifier. ça les notifie automatiquement lorsqu'il
 	 * y a changement.
@@ -53,34 +55,40 @@ public class Reservation implements IReservation, Sujet {
 	public ReservState getUpdate(Observateur obj){
 		return this.state;
 	}
-	public double modifier(UniteParVoyage unitee){
+	public double modifier(UniteParVoyage unitee){ //here
 		this.changed = true;
 		this.state.setMessage(unitee);
 		this.state.setNoReserv(this.noReservation);
 		this.notify();
 		//todo : La fonction de modification
-		return Montant;
-	}
-
-	public double calculerFrais() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
-	public void annuler() {
-		// TODO Auto-generated method stub
-		
+	public double calculerFrais() {
+		return montant;
 	}
 
-	public void addPassager(String nom, String prenom, String adresse, String courriel, String telephone,
-			Date naissance, String passeport, Date exp) {
-		// TODO Auto-generated method stub
+	public void annuler() {
+		this.paiement.annuler();
+	}
+
+	public void addPassager(String nom, String prenom, String adresse, String courriel, String telephone,  //here
+		Date naissance, String passeport, Date exp) {
+			this.passager = new Passager(nom, prenom, adresse, courriel,  telephone, naissance);
+			this.passager.setPasseport(new Passeport(passeport,exp));
 		
 	}
 
 	public String paiementReservation(String noCarte, Date exp) {
 		// TODO Auto-generated method stub
-		return null;
+		this.paiement = new PaiementCredit(noCarte, exp, this.montant);
+		if(paiement.getConfirmation()){
+			this.confirmer = true;
+			String message = paiement.transaction();
+			return message;
+		}
+		else return "Carte invalide ou fond insufisant";
 	}
 
 	public String getNoReservation() {

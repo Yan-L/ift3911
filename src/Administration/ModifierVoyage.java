@@ -6,9 +6,12 @@ public class ModifierVoyage implements Command {
 
 	private Voyage idvoyage;
 
+	public ModifierVoyage(Voyage modVoyage){
+		idvoyage = modVoyage;
+	}
+
 	public void execute() {
-		// TODO - implement ModifierVoyage.execute
-		throw new UnsupportedOperationException();
+		//idvoyage.modifier(Time hdep, Time hArr, Date date, double prix);
 	}
 
 	public void unexecute() {

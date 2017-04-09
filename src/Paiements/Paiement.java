@@ -1,25 +1,26 @@
 package Paiements;
 
+import java.util.Date;
+
 public abstract class Paiement {
 
-	private double Montant;
-	private String NoConfirmation;
-
+	protected double montant;
+	private String noConfirmation;
+	protected Annulation annulation;
 	public String transaction() {
-		// TODO - implement Paiement.transaction
-		throw new UnsupportedOperationException();
+		return null;
 	}
 
 	public void annuler() {
-		// TODO - implement Paiement.annuler
-		throw new UnsupportedOperationException();
 	}
-
+	public Date getTodayDate(){
+		return null;
+	}
 	/**
 	 * 
 	 * @param montant
 	 */
-	public void rembourcer(double montant) {
+	public void rembourser(double montant) {
 		// TODO - implement Paiement.rembourcer
 		throw new UnsupportedOperationException();
 	}

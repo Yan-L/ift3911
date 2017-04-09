@@ -12,28 +12,33 @@ public abstract class Vehicule implements IVisitable {
 	private String nomModel;
 	private ArrayList<Section> sections;
 
+	public Vehicule(String id, String nomModel) {
+		Id = id;
+		this.nomModel = nomModel;
+		sections = new ArrayList<Section>();
+	}
+
 	public ArrayList<Section> getSections(){
 		return sections;
 	}
 
+	public void addSection(Section section){
+		sections.add(section);
+	}
+
 	/**
 	 * 
-	 * @param type
+	 * @param type F, A, P, E, I, O, S, F, D
 	 */
-	public void creerSection(String type) {
-		// TODO - implement Vehicule.creerSection
-		throw new UnsupportedOperationException();
-	}
+	public abstract Section creerSection(String type);
 
 	/**
 	 * 
 	 * @param type
 	 * @param nbRangees
 	 */
-	public void creerDisposition(String type, int nbRangees) {
-		// TODO - implement Vehicule.creerDisposition
-		throw new UnsupportedOperationException();
-	}
+	public abstract void creerDisposition(String type, int nbRangees);
+
 	public List<String> accept(Visiteur v){
 		
 		return v.Visite(this);
@@ -42,10 +47,6 @@ public abstract class Vehicule implements IVisitable {
 
 	public String getNomModel() {
 		return nomModel;
-	}
-
-	public void setNomModel(String nomModel) {
-		this.nomModel = nomModel;
 	}
 
 }

@@ -17,10 +17,10 @@ public class UniteParVoyage implements IVisitable{
 
 	private Unite unite;
 
-	public UniteParVoyage(String section, Voyage voyage, Unite siege) {
+	public UniteParVoyage(String section, Voyage voyage, Unite unite) {
 		this.section = section;
 		this.voyage = voyage;
-		this.unite = siege;
+		this.unite = unite;
 		etat = new EtatLibreUPV();
 		allState.add(etat);
 		allState.add(new EtatReserverUPV());
@@ -40,7 +40,7 @@ public class UniteParVoyage implements IVisitable{
 	}
 
 	public double getPrix() {
-		return voyage.getPrix();
+		return this.unite.getPrix();
 	}
 
 	/**
