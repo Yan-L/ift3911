@@ -37,6 +37,11 @@ public abstract class Vehicule implements IVisitable {
 		return v.Visite(this);
 	}
 
+	public void calculerPrix(double tarif){
+		for (int i = 0; i<sections.size(); i++){
+			sections.get(i).calculerPrix(tarif);
+		}
+	}
 
 	public String getNomModel() {
 		return nomModel;
