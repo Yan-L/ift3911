@@ -13,18 +13,28 @@ public class GestionnaireAdministration {
 	 * 
 	 * @param nom
 	 */
-	private Compagnie recupereCie(String nom) {
-		// TODO - implement GestionnaireAdministration.recupereCie
-		throw new UnsupportedOperationException();
+	public Compagnie recupereCie(String nom) {
+		for (Compagnie c : cieLts) {
+			if (c.getNom() == nom){
+				return c;
+			}
+		}
+		System.out.println("Compagnie not found");
+		return null;
 	}
 
 	/**
 	 * 
 	 * @param id
 	 */
-	private Installation recupereInstallation(String id) {
-		// TODO - implement GestionnaireAdministration.recupereInstallation
-		throw new UnsupportedOperationException();
+	public Installation recupereInstallation(String id) {
+		for (Installation i : installationsLts) {
+			if (i.getId() == id){
+				return i;
+			}
+		}
+		System.out.println("Installation not found");
+		return null;
 	}
 
 	public List<Voyage> getVoyagesLst() {
