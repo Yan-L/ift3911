@@ -13,18 +13,17 @@ public class Train extends Vehicule {
      * @return
      */
     @Override
-    public Section creerSection(String type) {
+    public void creerSection(String type, String typeDispo, int nbRangees) {
         Section section;
         if(type.equals("F")){
             section = new Premiere();
         }else{
             section = new Economique();
         }
-        return section;
+        Disposition dispo = new Etroit(nbRangees);
+        section.setDisposition(dispo);
+        section.creerUnites();
+        super.addSection(section);
     }
 
-    @Override
-    public void creerDisposition(String type, int nbRangees) {
-
-    }
 }

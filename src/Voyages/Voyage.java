@@ -40,6 +40,7 @@ public abstract class Voyage implements IVisitable, Sujet {
 
 	public void setPrix(double prix) {
 		Prix = prix;
+		Vehicule.calculerPrix(prix);
 	}
 
 	public double getPrix(){

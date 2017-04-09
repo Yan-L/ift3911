@@ -17,7 +17,7 @@ public class Avion extends Vehicule {
 	 * @return
 	 */
 	@Override
-	public Section creerSection(String type) {
+	public void creerSection(String type,  String typeDispo, int nbRangees) {
 		Section section;
 		if(type.equals("F")){
 			section = new Premiere();
@@ -28,11 +28,20 @@ public class Avion extends Vehicule {
 		}else{
 			section = new Economique();
 		}
-		return section;
+		Disposition dispo;
+		if(typeDispo.equals("L")){
+			dispo = new Large(nbRangees);
+		}else if (typeDispo.equals("M")){
+			dispo = new Moyen(nbRangees);
+		}else if(typeDispo.equals("C")){
+			dispo = new Confort(nbRangees);
+		}else{
+			dispo = new Etroit(nbRangees);
+		}
+		section.setDisposition(dispo);
+		section.creerUnites();
+		super.addSection(section);
 	}
 
-	@Override
-	public void creerDisposition(String type, int nbRangees) {
 
-	}
 }
