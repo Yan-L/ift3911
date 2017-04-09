@@ -5,10 +5,17 @@ import java.util.ArrayList;
 public abstract class Section {
 
 	private double Ratio;
-	private char Symbole;
 	private String Description;
 	private ArrayList<Unite> unites;
 	private String type;
+	private Disposition disposition;
+
+	public Section(double ratio, String description, String type) {
+		Ratio = ratio;
+		Description = description;
+		this.type = type;
+		unites = new ArrayList<Unite>();
+	}
 
 	public String getType(){
 		return type;
@@ -18,9 +25,16 @@ public abstract class Section {
 		return unites;
 	}
 
-	public double calculerPrix() {
-		// TODO - implement Section.calculerPrix
-		throw new UnsupportedOperationException();
+	public void addUnites(Unite unite){
+		unites.add(unite);
+	}
+
+	public abstract void creerDisposition(String type, int nbRangees);
+
+	public void calculerPrix(double tarif) {
+		for (int i = 0; i<unites.size(); i++){
+			unites.get(i).setPrix(tarif*Ratio);
+		}
 	}
 
 }
