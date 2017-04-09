@@ -27,17 +27,10 @@ public abstract class Vehicule implements IVisitable {
 	}
 
 	/**
-	 * 
+	 * creer une section avec sa disposition et ses unitées
 	 * @param type F, A, P, E, I, O, S, F, D
 	 */
-	public abstract Section creerSection(String type);
-
-	/**
-	 * 
-	 * @param type
-	 * @param nbRangees
-	 */
-	public abstract void creerDisposition(String type, int nbRangees);
+	public abstract void creerSection(String type, String typeDispo, int nbRangees);
 
 	public List<String> accept(Visiteur v){
 		

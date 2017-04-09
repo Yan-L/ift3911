@@ -17,6 +17,18 @@ public abstract class Section {
 		unites = new ArrayList<Unite>();
 	}
 
+	public double getRatio() {
+		return Ratio;
+	}
+
+	public void setDisposition(Disposition disposition) {
+		this.disposition = disposition;
+	}
+
+	public Disposition getDisposition() {
+		return disposition;
+	}
+
 	public String getType(){
 		return type;
 	}
@@ -29,7 +41,7 @@ public abstract class Section {
 		unites.add(unite);
 	}
 
-	public abstract void creerDisposition(String type, int nbRangees);
+	public abstract void creerUnites();
 
 	public void calculerPrix(double tarif) {
 		for (int i = 0; i<unites.size(); i++){
