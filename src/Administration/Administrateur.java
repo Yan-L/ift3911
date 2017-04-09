@@ -3,6 +3,9 @@ package Administration;
 import Voyages.*;
 
 import java.util.ArrayList;
+
+import java.sql.Time;
+
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +35,7 @@ public class Administrateur implements Observateur{
 	 * @param date
 	 * @param prix
 	 */
-	public void creerItineraire(String cieNom, String idDetail, List<String> lieux, Date hDep, Date hArr, Date date, double prix) {
+	public void creerItineraire(String cieNom, String idDetail, List<String> lieux, Time hDep, Time hArr, Date date, double prix) {
 		// TODO - implement Administrateur.creerItineraire
 		throw new UnsupportedOperationException();
 	}
@@ -132,7 +135,7 @@ public class Administrateur implements Observateur{
 	 * @param date
 	 * @param prix
 	 */
-	public void CreerVoyage(String cieNom, String idDetail, List<String> lieux, Date hDep, Date hArr, Date date, double prix) {
+	public void CreerVoyage(String cieNom, String idDetail, List<String> lieux, Time hDep, Time hArr, Date date, double prix) {
 		// TODO - implement Administrateur.CreerVoyage
 		throw new UnsupportedOperationException();
 	}
@@ -166,7 +169,7 @@ public class Administrateur implements Observateur{
 	 * @param date
 	 * @param prix
 	 */
-	public void ModifierVoyage(Date hdep, Date hArr, Date date, double prix) {
+	public void ModifierVoyage(Time hdep, Time hArr, Date date, double prix) {
 		// TODO - implement Administrateur.ModifierVoyage
 		throw new UnsupportedOperationException();
 	}
