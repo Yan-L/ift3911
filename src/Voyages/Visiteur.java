@@ -1,4 +1,5 @@
 package Voyages;
+import java.util.ArrayList;
 import java.util.List;
 
 import Modele.Vehicule;;
@@ -9,7 +10,7 @@ public interface Visiteur {
 	 * @param Voyage
 	 */
 	public List<String> Visite(Voyage v);
-
+	public List<String> Visite(Voyage v, String section);
 	/**
 	 * 
 	 * @param Compagnie
@@ -33,6 +34,8 @@ public interface Visiteur {
 	 * @param Vehicule
 	 */
 	public List<String> Visite(Vehicule u);
-	
+    
+    
+
 
 }

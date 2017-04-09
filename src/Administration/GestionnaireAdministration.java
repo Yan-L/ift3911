@@ -13,18 +13,23 @@ public class GestionnaireAdministration {
 	 * 
 	 * @param nom
 	 */
-	private Compagnie recupereCie(String nom) {
+	public Compagnie recupereCie(String nom) {
 		// TODO - implement GestionnaireAdministration.recupereCie
-		throw new UnsupportedOperationException();
+		Compagnie test = cieLts.get(0);
+		//throw new UnsupportedOperationException();
+		
+		return test;
 	}
 
 	/**
 	 * 
 	 * @param id
 	 */
-	private Installation recupereInstallation(String id) {
+	public Installation recupereInstallation(String id) {
 		// TODO - implement GestionnaireAdministration.recupereInstallation
-		throw new UnsupportedOperationException();
+		Installation test=installationsLts.get(0);
+		//throw new UnsupportedOperationException();
+		return test;
 	}
 
 	public List<Voyage> getVoyagesLst() {
