@@ -26,6 +26,7 @@ public abstract class Voyage implements IVisitable, Sujet {
 	private VoyageState state;
 	private ArrayList<Observateur> observers;
 	private ArrayList<UniteParVoyage> unites;
+	private Compagnie Cie;
 	private boolean changed;
 
 	public Voyage(String id, Time hDep, Time hArr, Date date) {
@@ -211,5 +212,13 @@ public abstract class Voyage implements IVisitable, Sujet {
 
 	public void setHeureDepart(Time heureDepart) {
 		HeureDepart = heureDepart;
+	}
+
+	public Compagnie getCie() {
+		return Cie;
+	}
+
+	public void setCie(Compagnie cie) {
+		Cie = cie;
 	}
 }

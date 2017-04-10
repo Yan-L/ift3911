@@ -14,6 +14,7 @@ public class GestionnaireAdministration {
 	 * @param nom
 	 */
 	public Compagnie recupereCie(String nom) {
+
 		for (Compagnie c : cieLts) {
 			if (c.getNom() == nom){
 				return c;
@@ -21,6 +22,7 @@ public class GestionnaireAdministration {
 		}
 		System.out.println("Compagnie not found");
 		return null;
+
 	}
 
 	/**
@@ -28,6 +30,7 @@ public class GestionnaireAdministration {
 	 * @param id
 	 */
 	public Installation recupereInstallation(String id) {
+
 		for (Installation i : installationsLts) {
 			if (i.getId() == id){
 				return i;
@@ -35,6 +38,7 @@ public class GestionnaireAdministration {
 		}
 		System.out.println("Installation not found");
 		return null;
+
 	}
 
 	public List<Voyage> getVoyagesLst() {

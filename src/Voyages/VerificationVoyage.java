@@ -12,16 +12,16 @@ public class VerificationVoyage implements Visiteur {
     	List<String> ListeInformation= new ArrayList<String>();
     	ListeInformation.add(v.getLieuDepart().getNom());
     	ListeInformation.add(v.getLieuDarrivee().getNom());
+    	ListeInformation.add(v.getCie().getIdVoyagePrefix());
+    	ListeInformation.add(v.getVehicule().getNomModel());
     	ListeInformation.add(v.getHeureDepart().toString());
     	ListeInformation.add(v.getHeureArrivee().toString());
-    	ListeInformation.add(v.getVehicule().getNomModel());
-    	ListeInformation.add(Double.toString(v.getPrix()));
     	
     	return ListeInformation;
     }
     
     
-    public List<String> Visite (Voyage v, String section)
+    public List<String> Visite(Voyage v, String section)
     {
     	List<String> ListeInformation= new ArrayList<String>();
     	int nbTotal=v.nbUniteesSection(section);
@@ -59,7 +59,7 @@ public class VerificationVoyage implements Visiteur {
 
 	public List<String> Visite(Vehicule u) {
 		List<String> ListeInformation= new ArrayList<String>();
-		ListeInformation.add(u.getNomModel());
+		//ListeInformation.add(u.getNomModel());
 		for (int i=0; i<u.getSections().size();i++)
 		{
 			ListeInformation.add(u.getSections().get(i).getType());

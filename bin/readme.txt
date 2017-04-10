@@ -1,0 +1,1 @@
+L'application n'est qu'en mode texte et l'interface le plus minimal possible afin de laisser le plus de temps au meilleur développement des patrons possible.
