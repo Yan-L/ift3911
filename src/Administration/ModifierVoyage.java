@@ -1,22 +1,18 @@
 package Administration;
 
 import Voyages.*;
+import java.sql.Time;
+import java.util.Date;
 
-public class ModifierVoyage implements Command {
+public class ModifierVoyage extends Command{
 
-	private Voyage idvoyage;
 
-	public ModifierVoyage(Voyage modVoyage){
-		idvoyage = modVoyage;
+	public void execute(Voyage idVoyage, Time hdep , Time hArr, Date date, double prix) {
+		idVoyage.modifier(hdep,hArr,date,prix);
 	}
 
-	public void execute() {
-		//idvoyage.modifier(Time hdep, Time hArr, Date date, double prix);
-	}
-
-	public void unexecute() {
-		// TODO - implement ModifierVoyage.unexecute
-		throw new UnsupportedOperationException();
+	public void unexecute(Voyage idVoyage, Time hdep , Time hArr, Date date, double prix) {
+		idVoyage.modifier(hdep,hArr,date,prix);
 	}
 
 }

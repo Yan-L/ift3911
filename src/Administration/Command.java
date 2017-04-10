@@ -1,9 +1,9 @@
 package Administration;
 
-public interface Command {
+public abstract class Command {
 
-	void execute();
+	public void execute(){}
 
-	void unexecute();
+	public void unexecute(){}
 
 }

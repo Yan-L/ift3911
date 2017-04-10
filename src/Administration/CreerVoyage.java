@@ -1,10 +1,11 @@
 package Administration;
 
-public class CreerVoyage implements Command {
+
+
+public class CreerVoyage extends Command {
 
 	public void execute() {
-		// TODO - implement CreerVoyage.execute
-		throw new UnsupportedOperationException();
+		//VoyageCreator.makeVoyage()
 	}
 
 	public void unexecute() {

@@ -1,6 +1,6 @@
 package Administration;
 
-public class CreerInstallation implements Command {
+public class CreerInstallation extends Command {
 
 
 	public void execute() {
