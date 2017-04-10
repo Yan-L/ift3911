@@ -170,9 +170,10 @@ public class Administrateur implements Observateur{
 	 * @param date
 	 * @param prix
 	 */
-	public void ModifierVoyage(Time hdep, Time hArr, Date date, double prix) {
-		// TODO - implement Administrateur.ModifierVoyage
-		throw new UnsupportedOperationException();
+	public void ModifierVoyage(Voyage idVoyage, Time hdep, Time hArr, Date date, double prix) {
+		ModifierVoyage mv = new ModifierVoyage(idVoyage,hdep,hArr,date,prix);
+		invocateur.add(mv);
+		invocateur.exec();
 	}
 
 	/**
@@ -181,9 +182,10 @@ public class Administrateur implements Observateur{
 	 * @param ville
 	 * @param nom
 	 */
-	public void ModifierInstallation(String id, String ville, String nom) {
-		// TODO - implement Administrateur.ModifierInstallation
-		throw new UnsupportedOperationException();
+	public void ModifierInstallation(Installation i,String id, String ville, String nom) {
+		ModifierInstallation mi = new ModifierInstallation(i,id,ville,nom);
+		invocateur.add(mi);
+		invocateur.exec();
 	}
 
 	/**
@@ -191,9 +193,10 @@ public class Administrateur implements Observateur{
 	 * @param nom
 	 * @param idVoyage
 	 */
-	public void ModifierCie(String nom, String idVoyage) {
-		// TODO - implement Administrateur.ModifierCie
-		throw new UnsupportedOperationException();
+	public void ModifierCie(Compagnie c, String nom, String idVoyage) {
+		ModifierCie mc = new ModifierCie(c,nom,idVoyage);
+		invocateur.add(mc);
+		invocateur.exec();
 	}
 
 	/**
@@ -238,7 +241,7 @@ public class Administrateur implements Observateur{
 
 	public void update() {
 		this.state = (VoyageState) this.sujet.getUpdate(this);
-		ModifierVoyage(this.state.getHeureDepart(),this.state.getHeureArrivee(),this.state.getDateDepart(),this.state.getPrix());
+		//ModifierVoyage(, this.state.getHeureDepart(),this.state.getHeureArrivee(),this.state.getDateDepart(),this.state.getPrix());
 	}
 
 	public void setSubject(Sujet sujet) {

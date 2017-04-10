@@ -2,7 +2,7 @@ package Administration;
 
 import Voyages.*;
 
-public class CreerEscale {
+public class CreerEscale extends Command {
 
 	private Voyage idvoyage;
 

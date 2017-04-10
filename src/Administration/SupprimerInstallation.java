@@ -2,7 +2,7 @@ package Administration;
 
 import Voyages.*;
 
-public class SupprimerInstallation implements Command {
+public class SupprimerInstallation extends Command {
 
 	private Installation idInstallation;
 

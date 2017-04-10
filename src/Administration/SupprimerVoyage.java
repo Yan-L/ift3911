@@ -2,7 +2,7 @@ package Administration;
 
 import Voyages.*;
 
-public class SupprimerVoyage implements Command {
+public class SupprimerVoyage extends Command {
 
 	private Voyage idvoyage;
 

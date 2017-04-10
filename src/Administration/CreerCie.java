@@ -1,6 +1,6 @@
 package Administration;
 
-public class CreerCie implements Command {
+public class CreerCie extends Command {
 
 	public void execute() {
 		// TODO - implement CreerCie.execute

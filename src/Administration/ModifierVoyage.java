@@ -5,14 +5,26 @@ import java.sql.Time;
 import java.util.Date;
 
 public class ModifierVoyage extends Command{
+	private Voyage voy;
+	private Time hdepart;
+	private Time harrivee;
+	private Date datedep;
+	private double leprix;
 
-
-	public void execute(Voyage idVoyage, Time hdep , Time hArr, Date date, double prix) {
-		idVoyage.modifier(hdep,hArr,date,prix);
+	public ModifierVoyage(Voyage idVoyage, Time hdep , Time hArr, Date date, double prix){
+		voy = idVoyage;
+		hdepart= hdep;
+		harrivee = hArr;
+		datedep = date;
+		leprix = prix;
 	}
 
-	public void unexecute(Voyage idVoyage, Time hdep , Time hArr, Date date, double prix) {
-		idVoyage.modifier(hdep,hArr,date,prix);
+	public void execute() {
+		voy.modifier(hdepart,harrivee,datedep,leprix);
+	}
+
+	public void unexecute() {
+		voy.modifier(hdepart,harrivee,datedep,leprix);
 	}
 
 }

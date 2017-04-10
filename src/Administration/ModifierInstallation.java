@@ -2,18 +2,26 @@ package Administration;
 
 import Voyages.*;
 
-public class ModifierInstallation implements Command {
+public class ModifierInstallation extends Command {
 
 	private Installation idInstallation;
+	private String iden;
+	private String city;
+	private String name;
+
+	public ModifierInstallation(Installation i,String id, String ville, String nom){
+		idInstallation = i;
+		iden = id;
+		city = ville;
+		name = nom;
+	}
 
 	public void execute() {
-		// TODO - implement ModifierInstallation.execute
-		throw new UnsupportedOperationException();
+		idInstallation.modifier(iden,city,name);
 	}
 
 	public void unexecute() {
-		// TODO - implement ModifierInstallation.unexecute
-		throw new UnsupportedOperationException();
+		idInstallation.modifier(iden,city,name);
 	}
 
 }
