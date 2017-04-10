@@ -29,7 +29,7 @@ public class GestionnaireReservation implements ServiceReservation {
 				//, la compagnie, le numéro du vol, la date de départ et d'arrivé.
 				ListeTexte.addAll(listVoyage.get(i).accept(visiteurObjet));
 				Affichage=ListeTexte.get(0)+"-"+ListeTexte.get(1)+":["+ListeTexte.get(2)+"]"+ListeTexte.get(3)
-						+"("+ListeTexte.get(4)+"-"+ListeTexte.get(5)+")";
+						+"("+ListeTexte.get(4)+"-"+ListeTexte.get(5)+")"; 
 				ListeTexte=(listVoyage.get(i).getVehicule().accept(visiteurObjet));
 				for (int j=0 ; j< ListeTexte.size();j++)
 				{
