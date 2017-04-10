@@ -9,13 +9,13 @@ public interface ServiceReservation {
 
 	/**
 	 * 
-	 * @param typeVoyage
+	 * 
 	 * @param ori
 	 * @param dest
 	 * @param date
 	 * @param section
 	 */
-	List<Voyage> verificationDisponibilite(String typeVoyage, Installation ori, Installation dest, Date date, String section);
+	List<Voyage> verificationDisponibilite( Installation ori, Installation dest, Date date, String section);
 
 	/**
 	 * 
