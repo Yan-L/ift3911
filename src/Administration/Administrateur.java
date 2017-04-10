@@ -23,6 +23,7 @@ public class Administrateur implements Observateur{
 	private Visiteur visiteurObjet = new VerificationVoyage();
 	//private State state;
 	private VoyageState state;
+	private Invoker invocateur = new Invoker();
 
 
 	/**
@@ -53,8 +54,8 @@ public class Administrateur implements Observateur{
 		{
 			if(Endroit==listVoyage.get(i).getLieuDarrivee() || Endroit==listVoyage.get(i).getLieuDarrivee())
 			{
-				//ici on va chercher les information au sujet du voyage soit l'installation de départ-d'arriver   
-				//, la compagnie, le numéro du vol, la date de départ et d'arrivé.
+				//ici on va chercher les information au sujet du voyage soit l'installation de dï¿½part-d'arriver   
+				//, la compagnie, le numï¿½ro du vol, la date de dï¿½part et d'arrivï¿½.
 				ListeTexte.addAll(listVoyage.get(i).accept(visiteurObjet));
 				Affichage=ListeTexte.get(0)+"-"+ListeTexte.get(1)+":["+ListeTexte.get(2)+"]"+ListeTexte.get(3)
 						+"("+ListeTexte.get(4)+"-"+ListeTexte.get(5)+")";
@@ -63,7 +64,7 @@ public class Administrateur implements Observateur{
 				{
 					List<String> temporaire = new ArrayList<String>();
 					temporaire= visiteurObjet.Visite(listVoyage.get(i),ListeTexte.get(j).toString());
-					//Ici on ajoute le texte contenant la classe, le nombre de place réserver/total et le cout
+					//Ici on ajoute le texte contenant la classe, le nombre de place rï¿½server/total et le cout
 					Affichage+= "|"+ListeTexte.get(j).toString()+"("+temporaire.get(0)+"/"+temporaire.get(1)+")"+temporaire.get(2);
 					
 				}
@@ -87,8 +88,8 @@ public class Administrateur implements Observateur{
 		{
 			if(Endroit==listVoyage.get(i).getCie() || Endroit==listVoyage.get(i).getCie())
 			{
-				//ici on va chercher les information au sujet du voyage soit l'installation de départ-d'arrive  
-				//, la compagnie, le numéro du vol, la date de départ et d'arrivé.
+				//ici on va chercher les information au sujet du voyage soit l'installation de dï¿½part-d'arrive  
+				//, la compagnie, le numï¿½ro du vol, la date de dï¿½part et d'arrivï¿½.
 				ListeTexte.addAll(listVoyage.get(i).accept(visiteurObjet));
 				Affichage=ListeTexte.get(0)+"-"+ListeTexte.get(1)+":["+ListeTexte.get(2)+"]"+ListeTexte.get(3)
 						+"("+ListeTexte.get(4)+"-"+ListeTexte.get(5)+")";
@@ -96,9 +97,9 @@ public class Administrateur implements Observateur{
 				for (int j=0 ; j< ListeTexte.size();j++)
 				{
 					List<String> temporaire = new ArrayList<String>();
-					//la seul dérogation a patron du visiteur car nous n'avons pas trouver de moyen facile pour aller chercher le nombre de place dans toutes les sections dans le vol courant.
+					//la seul dï¿½rogation a patron du visiteur car nous n'avons pas trouver de moyen facile pour aller chercher le nombre de place dans toutes les sections dans le vol courant.
 					temporaire= visiteurObjet.Visite(listVoyage.get(i),ListeTexte.get(j).toString());
-					//Ici on ajoute le texte contenant la classe, le nombre de place réserver/total et le cout
+					//Ici on ajoute le texte contenant la classe, le nombre de place rï¿½server/total et le cout
 					Affichage+= "|"+ListeTexte.get(j).toString()+"("+temporaire.get(0)+"/"+temporaire.get(1)+")"+temporaire.get(2);
 					
 				}

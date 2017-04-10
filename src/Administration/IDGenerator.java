@@ -2,20 +2,24 @@ package Administration;
 
 public class IDGenerator {
 
-	private IDGenerator instance;
+	private static IDGenerator instance;
+	private int counter = 0;
+	private String[] padding = {"","00000","0000","000", "00", "0"};
 
-	private IDGenerator() {
-		// TODO - implement IDGenerator.IDGenerator
-		throw new UnsupportedOperationException();
-	}
+	private IDGenerator() {}
 
-	public IDGenerator getInstance() {
-		return this.instance;
+	public static IDGenerator getInstance() {
+		if(instance == null){
+			instance = new IDGenerator();
+		}
+		return instance;
 	}
 
 	public String generate() {
-		// TODO - implement IDGenerator.generate
-		throw new UnsupportedOperationException();
+		String id = "" + counter;
+		id = padding[id.length()%6] + id;
+		counter++;
+		return id;
 	}
 
 }
